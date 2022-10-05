@@ -1,0 +1,103 @@
+<%- include("partials/header.ejs") -%>
+ 
+<div onload=showlogin() class="side-bar">
+    <div class="bar"><img src="/images/arrow-right-solid.svg" alt="Arrow" /></div>
+    <div class="side-menu">
+        <p class="btnlogin">Login</p>
+        <p class="btnadd">Add User</p>
+        <p class="btndelete">Delete User</p>
+        <p class="btnchange">Change Password</p>
+        <p class="btnpostd">Delete Post</p>
+        <p class="btnabout">About</p>
+        <p ><a href="/admin/compose">Compose</a></p>
+    </div>
+</div>
+ 
+<div class="cont" id="login">
+    <form class="admin-form" action="/admin" method="post">
+        <label for="">Name</label>
+        <input type="text" name="adminname" placeholder="Enter admin name">
+        <label for="">Password</label>
+        <input type="password" name="adminpassword" placeholder="Enter admin password">
+        <button type="submit">Log in</button>
+    </form>
+</div>
+
+<div class="cont" id="add">
+    <form action="/admin/adduser" class="add-user" method="post">
+        <label for="">Name</label>
+        <input type="text" name="username" placeholder="Enter user name">
+        <label for="">Password</label>
+        <input type="password" name="userpassword" placeholder="Enter user password">
+        <button type="submit" name="btnadduser">Add</button>
+    </form>
+</div>
+
+<div class="cont" id="delete">
+    <form action="/admin/deleteuser" class="delete-user" method="post">
+        <label for="">Name</label>
+        <input type="text" name="deleteusername" placeholder="Enter user name">
+        <button type="submit" name="btndeletuser">Delete user</button>
+    </form>
+</div>
+
+<div class="cont" id="change">
+    <form action="/admin/changepassword" class="change-password" method="post">
+        <label for="">User name</label>
+        <input type="text" name="changeusername" id="" placeholder="Enter your user name">
+        <label for="">Old password</label>
+        <input type="text" name="oldpassword" id="" placeholder="Enter your old password">
+        <label for="">New password</label>
+        <input type="text" name="newpassword" placeholder="Enter your new password">
+        <button type="submit" name="">Change</button>
+    </form>
+</div>
+
+<div class="cont" id="post-d">
+    <form action="/admin/deletepost" class="delete-post" method="post">
+        <label for="">Title</label>
+        <input type="text" name="deleteposttitle" placeholder="Enter post title">
+        <button type="submit" name="">Delete post</button>
+    </form>
+</div>
+
+<div class="cont" id="about">
+    <form action="/admin/about" class="about-card" id="about-form" method="post">
+        <label for="">Name</label>
+        <input type="text" name="authorname" placeholder="Enter your name">
+        <label for="">Position</label>
+        <input type="text" name="authorposition" placeholder="Enter your position">
+        <label for="">About Me</label>
+        <textarea name="authorbackground" id="" cols="30" rows="10"></textarea>
+        <button type="submit">Publish</button>
+    </form>
+</div>
+
+<script>
+    document.querySelector(".bar img").onclick = ()=>{
+        document.querySelector(".side-bar").classList.toggle("slide");
+    }
+    document.querySelector(".side-menu .btnlogin ").onclick = ()=> {
+        document.querySelector("#login").classList.toggle("pop");
+    }
+    document.querySelector(".side-menu .btnadd ").onclick = ()=> {
+        document.querySelector("#add").classList.toggle("pop");
+    }
+    document.querySelector(".side-menu .btndelete ").onclick = ()=> {
+        document.querySelector("#delete").classList.toggle("pop");
+    }
+    document.querySelector(".side-menu .btnchange ").onclick = ()=> {
+        document.querySelector("#change").classList.toggle("pop");
+    }
+    document.querySelector(".side-menu .btnpostd ").onclick = ()=> {
+        document.querySelector("#post-d").classList.toggle("pop");
+    }
+    document.querySelector(".side-menu .btnabout ").onclick = ()=> {
+        document.querySelector("#about").classList.toggle("pop");
+    }
+    function showlogin() {
+        document.querySelector(".cover").style="display:block;";
+    }
+</script>
+
+<%- include("partials/footer.ejs") -%>

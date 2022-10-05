@@ -1,0 +1,22 @@
+<%- include("partials/header") -%>
+
+<main>
+    
+
+        <% posts.forEach(function (post) { %>
+            <article class="">
+                <div class="inner">
+                    <a href="/post/<%= post.postTitle %>">
+                        <img src="images/screen.png" alt="<%= post.postTitle %>">
+                    </a>
+                    <h1><%= post.postTitle %></h1>
+                    <p><%= post.postBody.substring(0,150) %> ... </p>
+                    <a href="/post/<%= post.postTitle %>" class="read-more">Read More</a>
+                </div>
+            </article>
+       <% }) %>
+       
+    
+</main>
+
+<%- include("partials/footer") -%>

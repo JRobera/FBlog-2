@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This My first websit">
+
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <script src="https://kit.fontawesome.com/6eb8c7c4f8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="/" ><img src="/images/logo.svg" alt="logo"></a></div>
+        <div class="menu">
+            <form id="search" action="/" method="post">
+                <input type="text" name="search" placeholder="search topic">
+                <button type="submit">search</button>
+            </form>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+
+<script>
+    document.querySelector("#search button").onmouseover = function() {
+        document.querySelector("#search input").classList.toggle("show");
+    }
+</script>

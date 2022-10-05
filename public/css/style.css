@@ -1,0 +1,297 @@
+* {padding: 0; margin: 0; font-family: Arial, Helvetica, sans-serif;}
+
+html, body {
+    height: 100%;
+}
+
+nav {
+    display: flex;
+    height: 50px;
+    max-height: 50px;
+    background-color: lightgray;
+    margin-bottom: 10px;
+    align-items: center;
+    box-shadow: 0 0 6px 0px;
+}
+
+.logo, .menu {
+    flex: 1;
+}
+.logo > a {
+    text-decoration: none;
+    max-width: 100px; 
+    max-height: 50px;
+    padding: 15px;
+}
+
+.menu {
+    display: flex; 
+    gap: 15px; 
+    justify-content: center;
+}
+#search input {
+    margin-right: 5px;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width: 170px;
+}
+::placeholder {color: #6c6b6b ;}
+#search button {
+    border: none;
+    border-radius: 5px;
+    color: #6c6b6b;
+    padding: 7px;
+    background-color: white;
+    font-size: 14px;
+}
+#search button:hover {color: #1abc9c;}
+.menu a {text-decoration: none; 
+    align-self: center; 
+    font-size: 14px; 
+    color: #6c6b6b;
+}
+.menu a:hover{
+    color: #1abc9c;
+}
+
+/*  Main Section  */
+main {
+    width: 65%;
+    margin: auto;
+}
+article {
+    box-shadow: inset 0 0 1px 0px gray, 0 0 5px 0px gray;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+.inner {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+article img {
+    border-radius: 5px;
+    display: block;
+    width: 90%;
+    height: 300px;
+    margin: auto;
+
+}
+article p,h1 {
+    width: 90%;
+    margin: auto;
+    line-height: 1.5;
+}
+
+article h1 {margin: 20px auto 10px; color: #6c6b6b;}
+article p {font-size: 15px;}
+
+article .read-more { 
+    display: block;
+    width:90%; 
+    margin: auto; 
+    margin-top: 10px;
+    text-decoration: none; 
+    color: lightblue;
+}
+article .read-more:hover {color: #1abc9c ;}
+
+/* Aboute page */
+.about-page {
+    width: 70%;
+    min-height: 369px;
+    margin: 100px auto;
+    box-shadow: inset 0 0 1px 0px;
+    padding: 30px;
+}
+.about-page h1 {width: unset;}
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: solid 3px;
+    display: inline-block;
+    margin-right: 15px;
+}
+.detail {    
+    display: inline-block;
+    position: relative;
+    top: 50px;
+    line-height: 1.5;}
+.intro .name {
+    font-family: bold;
+    font-size: 16px;
+}
+.intro .posi {
+    font-size: 12px;
+}
+.discription {
+    line-height: 1.5;
+    margin-top: 30px;
+    width: 80%;
+}
+
+
+
+/* Admin Form */
+.cover { 
+    position: absolute;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(211, 211, 211, 0.3);
+}
+.admin-form, .add-user, .delete-user, .change-password, .delete-post, .about-card {
+    position: relative;
+    transform: translateY(50%);
+    background-color: #6c6b6b;
+    border-radius: 10px;
+    color: lightgray;
+    width: 250px;
+    margin: auto;
+    padding: 30px;
+    display: grid;
+    gap: 10px;
+}
+.admin-form input {
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    outline: none;
+}
+.admin-form button {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+}
+
+.side-bar {
+    display: flex;
+    height: 79.1%;
+    width: 0px;
+    min-width: 50px;
+    overflow-x: hidden;
+    transition: width .5s;
+}
+.slide {
+    width: 180px;
+}
+.bar {
+    display: flex;
+    align-items:flex-start;
+    max-width: 50px;
+    width: 50px;
+    background-color: lightgray;
+}
+.bar img {width: 25px; height: 40px; padding: 5px;}
+.side-menu {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    background-color: #6c6b6b;
+}
+.side-menu > p {
+    border-top: 1px inset black;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #8f8f8f;
+    color: white;
+    width: 95%;
+    border-radius: 5px;
+    margin: 15px auto;
+}
+.side-menu >p a {text-decoration: none; color: white;}
+
+.cont {   
+    display: none; 
+    width: 100%;
+    height: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+}
+
+.cont form {
+    width: 40%;
+}
+.cont form input, button {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px;
+}
+
+.cont form button {
+    color: white;
+    background-color: rgb(31, 92, 223);
+}
+.cont form button:hover {background-color: rgba(31, 92, 223, 0.637);}
+.pop {display: block;}
+
+/* Compose */
+.compose-contain {
+    width: 90%;
+    margin: 32px auto;
+    padding: 10px;
+}
+.compose {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 15px;
+}
+.compose div {
+    display: grid;
+    gap: 10px;
+}
+.compose div input {
+    border: none;
+    padding: 10px;
+    outline: none;
+    border-bottom: solid 1px;
+}
+.compose button {
+    border: none;
+    background-color: rgb(31, 92, 223);
+    border-radius: 5px;
+    color: white;
+    align-self: flex-end; 
+    padding: 10px 40px;
+}
+
+
+/* Footer section */
+
+footer {
+    width: -webkit-fill-available;
+    background-color: rgb(33, 148, 180);
+    text-align: center;
+    margin-top: 20px;
+    padding: 30px 0;
+}
+
+/* ********* Small screen ********** */
+
+@media (max-width: 805px) {
+
+    #search input {
+        position: absolute;
+        right: 208px;
+        z-index: -1;
+        width: 0;
+    }
+    .show {
+        width: 200px !important;
+        top: 45px;
+        padding-bottom: 10px !important;
+        box-shadow: inset 0 0 3px 1px;
+        z-index: 5 !important;
+        right: 100px !important;
+    }
+    main {width: 90%;}
+    
+    
+}
