@@ -110,7 +110,7 @@ app.get("/post/:topics", (req, res) =>{
         if(err || !result) {
             res.send("<h1>404 page not found!</h1>")
         }else {
-            res.render("post", {title: result.postTitle, content: result.postBody});
+            res.render("post", {title: result.postTitle, image: result.postImage, content: result.postBody});
         }
     });
     
@@ -123,7 +123,7 @@ app.get("/admin", (req, res)=> {
 app.post("/admin", (req, res)=> {
     admindata.name = req.body.adminname;
     admindata.password = req.body.adminpassword;
-    console.log(req.adminname);
+    console.log(admindata.name);
     res.redirect("/admin/compose");
 });
 
@@ -149,7 +149,7 @@ app.post("/admin/changepassword", (req, res)=> {
     res.redirect("/admin");
 });
 app.post("/admin/deletepost", (req, res)=>{
-    Posts.findOneAndDelete({postTitle: req.body.deleteposttitle}, (found)={});
+    Posts.findOneAndDelete({postTitle: req.body.deleteposttitle}, (found)=> {});
     res.redirect("/admin");
 });
 app.post("/admin/about", (req, res)=>{
@@ -170,7 +170,7 @@ app.post("/admin/about", (req, res)=>{
 });
 
 app.get("/admin/compose", (req, res)=> {
-    Admins.find({name: admindata.name, password: admindata.password},(err, found)=>{
+    Admins.findOne({name: admindata.name, password: admindata.password},(err, found)=>{
         if(found){
             res.render("compose");
         }else {
@@ -180,16 +180,15 @@ app.get("/admin/compose", (req, res)=> {
     
 });
 
-app.post("/admin/compose", upload.single("postImage"), (req,res) => {
+app.post("/admin/compose", upload.single("postImage"), (req, res, next) => {
     Posts.findOne({postTitle: req.body.postTitle }, (err, posttitle)=>{
         if(!posttitle){
             const post = new Posts({
-                postTitle: req.body.postTitle,
-                postImage: req.body.postImage,
+                postTitle: _.capitalize(req.body.postTitle),
+                postImage: req.file.filename,
                 postBody: req.body.postBody
             });
             post.save();
-            console.log(req.body.postImage);
             res.redirect("/");
         }else {
             console.log("Already exists");
@@ -198,7 +197,7 @@ app.post("/admin/compose", upload.single("postImage"), (req,res) => {
 });
 
 
-app.listen(3000 ,()=>{
+app.listen(process.env.PORT || 3000 ,()=>{
     console.log("server running on port 3000");
 })
 
