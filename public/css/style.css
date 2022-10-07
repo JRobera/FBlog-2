@@ -1,8 +1,13 @@
-* {padding: 0; margin: 0; font-family: Arial, Helvetica, sans-serif;}
+* {
+    padding: 0; 
+    margin: 0; 
+    font-family: 'Montserrat', sans-serif;
+}
 
 html, body {
     height: 100%;
 }
+textarea {outline: none; padding: 5px;}
 
 nav {
     display: flex;
@@ -23,17 +28,20 @@ nav {
     max-height: 50px;
     padding: 15px;
 }
+.logo img {width: 100px;}
 
 .menu {
     display: flex; 
     gap: 15px; 
     justify-content: center;
 }
+
 #search input {
     margin-right: 5px;
     padding: 7px;
     border-radius: 5px;
     border: none;
+    box-shadow:  0 0 3px 0px;
     outline: none;
     width: 170px;
 }
@@ -41,6 +49,7 @@ nav {
 #search button {
     border: none;
     border-radius: 5px;
+    box-shadow: 0 0 3px 0px;
     color: #6c6b6b;
     padding: 7px;
     background-color: white;
@@ -84,7 +93,10 @@ article p,h1 {
     line-height: 1.5;
 }
 
-article h1 {margin: 20px auto 10px; color: #6c6b6b;}
+article h1 {
+    color: #6c6b6b;
+    margin: 20px auto 10px; 
+}
 article p {font-size: 15px;}
 
 article .read-more { 
@@ -96,6 +108,19 @@ article .read-more {
     color: lightblue;
 }
 article .read-more:hover {color: #1abc9c ;}
+/* .rating {
+    height: 50px;
+    text-align: center;
+}
+.rating form {
+    width: 30px;
+    display: inline-block;
+    height: 30px;
+    margin: 10px;
+}
+.rating > form button {padding: 0; height: 30px;}
+.rating > form button>img {height: 30px !important;}
+.rating > form img:hover {filter: invert(50%);} */
 
 /* Aboute page */
 .about-page {
@@ -104,6 +129,11 @@ article .read-more:hover {color: #1abc9c ;}
     margin: 100px auto;
     box-shadow: inset 0 0 1px 0px;
     padding: 30px;
+}
+.intro {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
 }
 .about-page h1 {width: unset;}
 .avatar {
@@ -117,7 +147,7 @@ article .read-more:hover {color: #1abc9c ;}
 .detail {    
     display: inline-block;
     position: relative;
-    top: 50px;
+    top: -40px;
     line-height: 1.5;}
 .intro .name {
     font-family: bold;
@@ -133,90 +163,96 @@ article .read-more:hover {color: #1abc9c ;}
 }
 
 
-
 /* Admin Form */
 .cover { 
+    background-color: rgba(211, 211, 211, 0.3);
+    height: 100%; 
     position: absolute;
     top: 0;
     width: 100%; 
-    height: 100%; 
-    background-color: rgba(211, 211, 211, 0.3);
 }
 .admin-form, .add-user, .delete-user, .change-password, .delete-post, .about-card {
-    position: relative;
-    transform: translateY(50%);
     background-color: #6c6b6b;
     border-radius: 10px;
     color: lightgray;
-    width: 250px;
-    margin: auto;
-    padding: 30px;
     display: grid;
     gap: 10px;
+    margin: auto;
+    padding: 30px;
+    position: relative;
+    transform: translateY(50%);
+    width: 250px;
 }
 .admin-form input {
     border: none;
-    padding: 7px;
     border-radius: 5px;
     outline: none;
+    padding: 7px;
 }
 .admin-form button {
     background-color: white;
-    padding: 10px;
-    border-radius: 5px;
     border: none;
+    border-radius: 5px;
     margin-top: 10px;
+    padding: 10px;
 }
 
+#change {top:50px;}
+#about {top:-230px;}
+
 .side-bar {
+    border-bottom-right-radius: 70px;
+    border-top-right-radius: 15px;
     display: flex;
     height: 79.1%;
-    width: 0px;
     min-width: 50px;
+    min-height: 566px;
     overflow-x: hidden;
     transition: width .5s;
+    width: 0px;
 }
 .slide {
     width: 180px;
 }
 .bar {
-    display: flex;
     align-items:flex-start;
+    background-color: lightgray;
+    display: flex;
     max-width: 50px;
     width: 50px;
-    background-color: lightgray;
 }
-.bar img {width: 25px; height: 40px; padding: 5px;}
+.bar img {height: 40px; padding: 5px; width: 25px; }
 .side-menu {
+    background-color: #6c6b6b;
     display: flex;
     flex-direction: column;
     width: inherit;
-    background-color: #6c6b6b;
 }
 .side-menu > p {
-    border-top: 1px inset black;
-    text-align: center;
-    padding: 10px 0;
     background-color: #8f8f8f;
-    color: white;
-    width: 95%;
     border-radius: 5px;
+    border-top: 1px inset black;
+    color: white;
     margin: 15px auto;
+    padding: 10px 0;
+    text-align: center;
+    width: 95%;
 }
-.side-menu >p a {text-decoration: none; color: white;}
+.side-menu >p:hover {background-color:#c5c5c5;}
+.side-menu >p a {color: white; text-decoration: none; }
 
 .cont {   
     display: none; 
-    width: 100%;
     height: 0;
     margin: auto;
     position: absolute;
     top: 0;
+    width: 100%;
 }
 
-.cont form {
+/* .cont form {
     width: 40%;
-}
+} */
 .cont form input, button {
     border: none;
     border-radius: 5px;
@@ -225,17 +261,26 @@ article .read-more:hover {color: #1abc9c ;}
 }
 
 .cont form button {
-    color: white;
     background-color: rgb(31, 92, 223);
+    color: white;
 }
 .cont form button:hover {background-color: rgba(31, 92, 223, 0.637);}
 .pop {display: block;}
+.close {display: none;}
 
+.btnclose {
+    height: 30px;
+    position: absolute;
+    right: 25px;
+    top: 0px;
+    width: 30px;
+    z-index: 10;
+}
 /* Compose */
 .compose-contain {
-    width: 90%;
     margin: 32px auto;
     padding: 10px;
+    width: 90%;
 }
 .compose {
     display: flex;
@@ -249,48 +294,45 @@ article .read-more:hover {color: #1abc9c ;}
 }
 .compose div input {
     border: none;
-    padding: 10px;
-    outline: none;
     border-bottom: solid 1px;
+    outline: none;
+    padding: 10px;
 }
 .compose button {
-    border: none;
+    align-self: flex-end; 
     background-color: rgb(31, 92, 223);
+    border: none;
     border-radius: 5px;
     color: white;
-    align-self: flex-end; 
     padding: 10px 40px;
 }
-
 
 /* Footer section */
 
 footer {
-    width: -webkit-fill-available;
     background-color: rgb(33, 148, 180);
-    text-align: center;
     margin-top: 20px;
-    padding: 30px 0;
+    padding: 47.5px 0;
+    text-align: center;
+    width: -webkit-fill-available;
+}
+footer p {
+    font-size: 13px;
 }
 
 /* ********* Small screen ********** */
 
 @media (max-width: 805px) {
 
-    #search input {
+    #search {
         position: absolute;
-        right: 208px;
-        z-index: -1;
-        width: 0;
+        right: 50%;
+        top: 60px;
+        transform: translate(50%, 0%);
+        width: max-content;
+        z-index: 20;
     }
-    .show {
-        width: 200px !important;
-        top: 45px;
-        padding-bottom: 10px !important;
-        box-shadow: inset 0 0 3px 1px;
-        z-index: 5 !important;
-        right: 100px !important;
-    }
+    
     main {width: 90%;}
     
     

@@ -10,6 +10,8 @@
                         <img src="images/<%= post.postImage %>" alt="<%= post.postTitle %>">
                     </a>
                     <h1><%= post.postTitle %></h1>
+                    <p style="margin-bottom: 15px;">Posted <%= post.postDate %></p>
+
                     <p><%= post.postBody.substring(0,150) %> ... </p>
                     <a href="/post/<%= post.postTitle %>" class="read-more">Read More</a>
                 </div>
