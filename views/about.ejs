@@ -1,15 +1,19 @@
 <%- include("partials/header") -%>
-    
- 
-    <div class="about-page">
-        <h1>About me</h1>
-        <div class="intro">
-            <img src="/images/<%=avatar%>" alt="Avatar" class="avatar">
-            <div class="detail">
-                <p class="name"><%=name%></p>
-                <p class="posi"><%=position%></p>
-            </div>
-        </div>
-        <p class="discription"><%=background %></p>
+
+<div class="about-page">
+  <h1>About me</h1>
+  <div class="intro">
+    <img
+        src="data:images/<%= avatar?.contentType %>;base64, 
+        <%= avatar?.data.toString('base64') %>" 
+      alt="Avatar"
+      class="avatar"
+    />
+    <div class="detail">
+      <p class="name"><%=name%></p>
+      <p class="posi"><%=position%></p>
     </div>
+  </div>
+  <p class="discription"><%=background %></p>
+</div>
 <%- include("partials/footer") -%>

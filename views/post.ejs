@@ -1,12 +1,16 @@
 <%- include("partials/header") -%>
-    <main>
-        <article style="box-shadow: none;">
-            <div class="inner">
-                <img src="/images/<%= image %>" alt="image" />
-                <h1><%=title%></h1>
-                <p><%=content%></p>
-            </div>
-            <!-- <div class="rating">
+<main>
+  <article style="box-shadow: none">
+    <div class="inner">
+      <img
+        src="data:image/<%= image?.contentType%>;base64,
+                <%=image?.data.toString('base64')%>"
+        alt="image"
+      />
+      <h1><%=title%></h1>
+      <p><%=content%></p>
+    </div>
+    <!-- <div class="rating">
                 <form action="/rating/like" method="post">
                     <button>
                      <img id="like" src="/images/thumbs-up-regular.svg" alt="thumbs-up" />
@@ -18,8 +22,7 @@
                     </button>
                 </form>
             </div> -->
-        </article>
-    </main>
-    
+  </article>
+</main>
 
 <%- include("partials/footer") -%>

@@ -1,24 +1,24 @@
 <%- include("partials/header") -%>
 
 <main>
-    
+  <% posts.forEach(function (post) { %>
+  <article class="">
+    <div class="inner">
+      <a href="/post/<%= post.postTitle %>">
+        <img
+          src="data:post.postImage/<%=post.postImage.contentType%>;base64,
+                <%=post.postImage.data.toString('base64')%>"
+          alt="<%= post.postTitle %>"
+        />
+      </a>
+      <h1><%= post.postTitle %></h1>
+      <p style="margin-bottom: 15px">Posted <%= post.postDate %></p>
 
-        <% posts.forEach(function (post) { %>
-            <article class="">
-                <div class="inner">
-                    <a href="/post/<%= post.postTitle %>">
-                        <img src="/images/<%= post.postImage %>" alt="<%= post.postTitle %>">
-                    </a>
-                    <h1><%= post.postTitle %></h1>
-                    <p style="margin-bottom: 15px;">Posted <%= post.postDate %></p>
-
-                    <p><%= post.postBody.substring(0,150) %> ... </p>
-                    <a href="/post/<%= post.postTitle %>" class="read-more">Read More</a>
-                </div>
-            </article>
-       <% }) %>
-       
-    
+      <p><%= post.postBody.substring(0,150) %> ...</p>
+      <a href="/post/<%= post.postTitle %>" class="read-more">Read More</a>
+    </div>
+  </article>
+  <% }) %>
 </main>
 
 <%- include("partials/footer") -%>
