@@ -204,7 +204,7 @@ app.post("/admin/about", upload.single("authoravatar"), (req, res) => {
         About.findOneAndUpdate(
           { name: req.body.authorname },{
           $set:{
-            avatar: { data: fs.readFileSync(path.join(__dirname + "/public/images/" + req.file.filename)), 
+            avatar: { data: JSON.parse(fs.readFileSync(path.join(__dirname + "/public/images/" + req.file.filename))), 
             contentType: "images/*" },
             name: req.body.authorname,
             position: req.body.authorposition,
@@ -214,7 +214,7 @@ app.post("/admin/about", upload.single("authoravatar"), (req, res) => {
             if(!found){
               About.deleteMany({}, () => {});
         const Author = new About({
-          avatar: { data: fs.readFileSync(path.join(__dirname + "/public/images/" + req.file.filename)), 
+          avatar: { data: JSON.parse(fs.readFileSync(path.join(__dirname + "/public/images/" + req.file.filename))), 
           contentType: "images/*" },
           name: req.body.authorname,
           position: req.body.authorposition,
@@ -253,9 +253,9 @@ app.post("/admin/compose", upload.single("postImage"), (req, res, next) => {
         const post = new Posts({
           postTitle: _.capitalize(req.body.postTitle),
           postImage: {
-            data: fs.readFileSync(
+            data: JSON.parse(fs.readFileSync(
               path.join(__dirname + "/public/images/" + req.file.filename)
-            ),
+            )),
             contentType: "image/*",
           },
           postBody: req.body.postBody,
