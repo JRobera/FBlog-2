@@ -76,7 +76,7 @@ const About = mongoose.model("About", AboutSchema);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, __dirname + "/tmp/");
+    cb(null, __dirname + "/public/images");
   },
   filename: (req, file, cb) => {
     cb(null, file.fieldname + "-" + Date.now());
@@ -204,7 +204,7 @@ app.post("/admin/about", upload.single("authoravatar"), (req, res) => {
         About.findOneAndUpdate(
           { name: req.body.authorname },{
           $set:{
-            avatar: { data: JSON.parse(fs.readFileSync(path.join(__dirname + "/tmp/" + req.file.filename))), 
+            avatar: { data: JSON.parse(fs.readFileSync(path.join(__dirname + "/public/images" + req.file.filename))), 
             contentType: "images/*" },
             name: req.body.authorname,
             position: req.body.authorposition,
@@ -214,7 +214,7 @@ app.post("/admin/about", upload.single("authoravatar"), (req, res) => {
             if(!found){
               About.deleteMany({}, () => {});
         const Author = new About({
-          avatar: { data: JSON.parse(fs.readFileSync(path.join(__dirname + "/tmp/" + req.file.filename))), 
+          avatar: { data: JSON.parse(fs.readFileSync(path.join(__dirname + "/public/images" + req.file.filename))), 
           contentType: "images/*" },
           name: req.body.authorname,
           position: req.body.authorposition,
@@ -254,7 +254,7 @@ app.post("/admin/compose", upload.single("postImage"), (req, res, next) => {
           postTitle: _.capitalize(req.body.postTitle),
           postImage: {
             data: JSON.parse(fs.readFileSync(
-              path.join(__dirname + "/tmp/" + req.file.filename)
+              path.join(__dirname + "/public/images" + req.file.filename)
             )),
             contentType: "image/*",
           },
