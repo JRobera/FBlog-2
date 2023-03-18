@@ -201,6 +201,9 @@ app.post("/admin/about", upload.single("authoravatar"), (req, res) => {
     req.body.authorposition &&
     req.body.authorbackground
   ) {
+        if(!fs.existsSync('/public/images')){
+          fs.mkdirSync('/public/images',{recursive: true});
+        }
         About.findOneAndUpdate(
           { name: req.body.authorname },{
           $set:{
@@ -250,6 +253,9 @@ app.post("/admin/compose", upload.single("postImage"), (req, res, next) => {
   if (req.body.postTitle && req.file.filename && req.body.postBody) {
     Posts.findOne({ postTitle: req.body.postTitle }, (err, posttitle) => {
       if (!posttitle) {
+        if(!fs.existsSync('/public/images')){
+          fs.mkdirSync('/public/images',{recursive: true});
+        }
         const post = new Posts({
           postTitle: _.capitalize(req.body.postTitle),
           postImage: {
